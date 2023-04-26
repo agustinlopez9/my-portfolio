@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+	<title>maximize</title>
+	<defs>
+		<image  width="165" height="130" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAACCCAMAAAAQXPhmAAAAAXNSR0IB2cksfwAAADZQTFRF////////////////////////////////////////////////////////////////////////AToNIAAAABJ0Uk5TAL//QIADBiAQ7zDPn9+vYHAB39Yx9AAAAWJJREFUeJzt28FygjAUhWHBtECJ1b7/y3bTBQshuckhN9r/X+PxcxhHB+VyMTSMjRosKpQoUaJEiRKlVXmtGXpWQCkLpS6UulDq+mfK4j4+08f4K3NCqQulLpS6UOpCqQulrjdQTvIvin+71gccKudlPKPF/OKPz/gpF3+WLyvSQVmAbK8sQTZXFiFbK8uQjZWFyLbKUmRTZTGypXI1f+Q4KNe5GNlOWYM0KOO1qhqkQRlqnqYylLpQGpqO31xdKMPtljigA2VMjnegjOlxf2XMGHdXxpxxb2XMGndWxrxxV+UcM8c9lfOaO+6o3CA7Vq75447Kzfb4/RLKxKVTlChRovRQ3sO2oVPl/rUflCj9lPu/2vWk3EWiRInyLZRht3tHSksoUQpDqQulLpS6UOpCqQulLpS6UOpCqQulrlOUp4YSJUqUKFG+lPKce/ielPhf8GHTo+6uhPxC1Q0MRL318wveZjXc93cuBQAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="52" y="62"/>
+</svg>

@@ -17,3 +17,12 @@ body {
     rgb(var(--background-start-rgb));
   font-family: Ubuntu, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+@layer components {
+  .window-container {
+    @apply  w-[700px] h-[500px] text-white rounded-t-lg border border-black shadow-xl
+  }
+  .home-title {
+    @apply flex justify-between m-4 px-3 py-2 rounded-md border border-ubuntu-9 bg-ubuntu-8
+  }
+}
