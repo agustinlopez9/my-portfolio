@@ -3,12 +3,12 @@ import Link from "next/link"
 const Navbar = ({ children }) => {
   return (
     <main className="flex h-screen text-white">
-      <div className="absolute flex justify-between w-screen h-8 px-2 text-center bg-ubuntu-9">
+      <div className="flex justify-between w-full h-8 px-2 text-center bg-ubuntu-9">
         <p className="p-1">Activities</p>
         <p className="p-1">lun 24 de abr 18:42</p>
         <p className="p-1">agustinlopez9</p>
       </div>
-      <navbar className="absolute bg-black/20 w-[60px] left-0 bottom-0 top-8">
+      <navbar className="absolute bg-black/30 w-[60px] left-0 bottom-0 top-8">
         <ul className="mt-2">
           <li className="p-1">
             <Link href="/">
