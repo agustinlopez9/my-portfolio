@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <Draggable bounds="parent" onStart={() => setDragging(true)} onStop={() => setDragging(false)} disabled={fullScreen}>
       <div className={`window-container ${fullScreen ? "w-full h-full" : ""} bg-ubuntu-6 rounded-t-lg ${dragging ? "" : "transition-all"}`} ref={windowRef}>
-        <div className="flex p-2 justify-end bg-ubuntu-8 border-b border-black rounded-t-md">
+        <div className="flex justify-end p-2 bg-ubuntu-8 border-b border-black rounded-t-md">
           <h2 className="mx-auto font-medium">Home</h2>
           <div className="flex gap-1">
             <img
@@ -35,7 +35,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div>
+        <div className="mx-auto mt-4 max-w-[1080px]">
           <p className="home-title">
             Nombre: <span className="text-ubuntu-5">Agustin Lopez</span>
           </p>

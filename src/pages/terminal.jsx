@@ -6,7 +6,13 @@ export default function Terminal() {
   const [fullScreen, setFullScreen] = useState(false)
   const [dragging, setDragging] = useState(false)
   const [position, setPosition] = useState("")
+  const [terminal, setTerminal] = useState([])
   const windowRef = useRef(null)
+  const inputRef = useRef(null)
+
+  const commands = {
+    help: "Sorry, this is a work in progress, commands will be available in the future!",
+  }
 
   useEffect(() => {
     if (fullScreen && windowRef.current) {
@@ -16,6 +22,27 @@ export default function Terminal() {
       windowRef.current.style.transform = position
     }
   }, [fullScreen])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const newContent = [...terminal]
+    const inputValue = inputRef.current.value
+    const command = commands[inputValue]
+    inputRef.current.value = ""
+
+    if (inputValue == "clear") {
+      const terminal = []
+      setTerminal(terminal)
+      return
+    } 
+
+    if (command) {
+      newContent.push(inputValue, command)
+    } else {
+      newContent.push(inputValue, `${inputValue} is not a valid command`)
+    }
+    setTerminal(newContent)
+  }
 
   return (
     <Draggable bounds="parent" onStart={() => setDragging(true)} onStop={() => setDragging(false)} disabled={fullScreen}>
@@ -29,8 +56,8 @@ export default function Terminal() {
           <div className="flex gap-1">
             <img
               src="/maximize.svg"
-              width="24px"
               alt="maximize"
+              width="24px"
               className="cursor-pointer bg-ubuntu-6 p-0.5 rounded-full"
               onClick={() => setFullScreen(!fullScreen)}
             />
@@ -40,13 +67,32 @@ export default function Terminal() {
           </div>
         </div>
         <ul className="p-3">
-          <li>To run a command as administrator user: "root", user "sudo command".</li>
-          <li>See "man sudo_root" for details</li>
-          <li>
-            <span className="text-green-500">agustin@agustin-system</span> sudo apt install brave
+          <li>Type 'help' to get the list of commands available</li>
+          {/* COMMANDS HISTORY */}
+          {terminal.map((item, index) => (
+            <li key={index}>
+              <UserTerminalText/>{" " + item}
+            </li>
+          ))}
+          {/* INPUT */}
+          <li className="flex">
+            <UserTerminalText/>
+            <form onSubmit={(e) => handleSubmit(e)}>
+              <div>
+                <input className="bg-transparent border-none outline-none px-1" ref={inputRef}></input>
+              </div>
+            </form>
           </li>
         </ul>
       </div>
     </Draggable>
+  )
+}
+
+function UserTerminalText() {
+  return (
+    <>
+      <span className="text-green-500 font-medium">user@linux-system</span>:<span className="text-blue-500">~</span>$
+    </>
   )
 }
