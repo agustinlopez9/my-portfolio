@@ -34,7 +34,7 @@ export default function Terminal() {
       const terminal = []
       setTerminal(terminal)
       return
-    } 
+    }
 
     if (command) {
       newContent.push(inputValue, command)
@@ -66,24 +66,27 @@ export default function Terminal() {
             </Link>
           </div>
         </div>
-        <ul className="p-3">
-          <li>Type 'help' to get the list of commands available</li>
-          {/* COMMANDS HISTORY */}
-          {terminal.map((item, index) => (
-            <li key={index}>
-              <UserTerminalText/>{" " + item}
+        <div className="absolute overflow-scroll inset-x-0 bottom-0 top-10">
+          <ul className="p-3">
+            <li>Type 'help' to get the list of commands available</li>
+            {/* COMMANDS HISTORY */}
+            {terminal.map((item, index) => (
+              <li key={index}>
+                <UserTerminalText />
+                {" " + item}
+              </li>
+            ))}
+            {/* INPUT */}
+            <li className="flex">
+              <UserTerminalText />
+              <form onSubmit={(e) => handleSubmit(e)}>
+                <div>
+                  <input className="bg-transparent border-none outline-none px-1" ref={inputRef}></input>
+                </div>
+              </form>
             </li>
-          ))}
-          {/* INPUT */}
-          <li className="flex">
-            <UserTerminalText/>
-            <form onSubmit={(e) => handleSubmit(e)}>
-              <div>
-                <input className="bg-transparent border-none outline-none px-1" ref={inputRef}></input>
-              </div>
-            </form>
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </Draggable>
   )

@@ -1,22 +1,26 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import moment from "moment"
 
 const Navbar = ({ children }) => {
-  const [time, setTime] = useState(moment().format('MMMM Do HH:mm a'))
+  const [time, setTime] = useState()
 
   useEffect(() => {
+    const options = { weekday: 'short', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
     setInterval(function() {
-      const currenTime = moment().format('MMMM Do HH:mm a')
-      setTime(currenTime)
-    }, 1000); // Update every second
+      const currentDate = new Date()
+      setTime(currentDate.toLocaleDateString(undefined, options).replaceAll(',', ''))
+    }, 500); // Update every half second
   })
 
   return (
     <main className="flex h-screen text-white">
-      <div className="flex justify-between w-full h-8 px-2 text-center bg-ubuntu-9">
+      <div className="flex justify-between items-center w-full h-8 px-2 text-center bg-ubuntu-9">
         <p className="p-1">Activities</p>
-        <p className="p-1">{time}</p>
+        <p className="p-1">
+          {
+            time ? time : <span className="block bg-ubuntu-6 h-3 w-48 rounded-full animate-pulse"/>
+          }
+        </p>
         <p className="p-1">agustinlopez9</p>
       </div>
       <navbar className="absolute bg-black/30 w-[60px] left-0 bottom-0 top-8">
