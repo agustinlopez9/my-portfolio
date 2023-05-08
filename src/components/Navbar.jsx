@@ -46,7 +46,7 @@ const Navbar = ({ children }) => {
           </li>
         </ul>
       </navbar>
-      <div className="flex justify-center items-center absolute top-8 left-[60px] right-0 bottom-0">{children}</div>
+      <div className="flex justify-center items-center absolute top-8 left-[60px] right-0 bottom-0 overflow-hidden">{children}</div>
     </main>
   )
 }
