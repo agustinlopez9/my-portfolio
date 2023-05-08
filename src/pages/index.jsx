@@ -19,10 +19,13 @@ export default function Home() {
 
   return (
     <Draggable bounds="parent" onStart={() => setDragging(true)} onStop={() => setDragging(false)} disabled={fullScreen}>
-      <div className={`window-container ${fullScreen ? "w-full h-full" : ""} bg-ubuntu-6 rounded-t-lg ${dragging ? "" : "transition-all"}`} ref={windowRef}>
-        <div className="flex justify-end p-2 bg-ubuntu-8 border-b border-black rounded-t-md">
-          <h2 className="mx-auto font-medium">Home</h2>
-          <div className="flex gap-1">
+      <div
+        className={`window-container ${fullScreen ? "w-full h-full" : ""} bg-ubuntu-6 rounded-t-lg ${dragging ? "" : "transition-all"}`}
+        ref={windowRef}
+      >
+        <div className="relative p-2 bg-ubuntu-8 border-b border-black rounded-t-md">
+          <h2 className="block mx-auto text-center font-medium">Home</h2>
+          <div className="absolute inset-0 flex items-center gap-1 justify-end p-2 mr-auto">
             <img
               src="/maximize.svg"
               width="24px"
@@ -52,6 +55,11 @@ export default function Home() {
           <p className="home-title">
             Services: <span className="text-ubuntu-5">AWS, Amplify, Firebase</span>
           </p>
+        </div>
+        <div className="block text-center">
+        <Link href={"/projects"} className="text-ubuntu-1 underline">
+          See my projects!
+        </Link>
         </div>
       </div>
     </Draggable>

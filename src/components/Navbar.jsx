@@ -13,7 +13,7 @@ const Navbar = ({ children }) => {
   })
 
   return (
-    <main className="flex h-screen text-white">
+    <main className="flex h-screen text-white cursor-default">
       <div className="flex justify-between items-center w-full h-8 px-2 text-center bg-ubuntu-9">
         <p className="p-1">Activities</p>
         <p className="p-1">
@@ -21,7 +21,11 @@ const Navbar = ({ children }) => {
             time ? time : <span className="block bg-ubuntu-6 h-3 w-48 rounded-full animate-pulse"/>
           }
         </p>
-        <p className="p-1">agustinlopez9</p>
+        <div className="flex gap-2 text-white">
+          <img src="wifi.png" width="16px" alt="wifi" />
+          <img src="volume.svg" width="16px" alt="volume" />
+          <img src="shutdown.svg" width="16px" alt="shutdown" />
+        </div>
       </div>
       <navbar className="absolute bg-black/30 w-[60px] left-0 bottom-0 top-8">
         <ul className="mt-2">

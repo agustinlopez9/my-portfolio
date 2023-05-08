@@ -25,4 +25,7 @@ body {
   .home-title {
     @apply flex justify-between m-4 px-3 py-2 rounded-md border border-ubuntu-9 bg-ubuntu-8
   }
+  .folder-item {
+    @apply px-3 py-2 my-0.5 w-full cursor-default
+  }
 }

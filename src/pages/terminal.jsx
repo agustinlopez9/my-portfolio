@@ -51,13 +51,13 @@ export default function Terminal() {
         id="terminal-window"
         ref={windowRef}
       >
-        <div className="flex p-2 justify-end bg-ubuntu-8 border-b border-black rounded-t-md">
-          <h2 className="mx-auto font-medium">Terminal</h2>
-          <div className="flex gap-1">
+        <div className="relative p-2 bg-ubuntu-8 border-b border-black rounded-t-md">
+          <h2 className="block mx-auto text-center font-medium">Terminal</h2>
+          <div className="absolute inset-0 flex items-center gap-1 justify-end p-2 mr-auto">
             <img
               src="/maximize.svg"
-              alt="maximize"
               width="24px"
+              alt="maximize"
               className="cursor-pointer bg-ubuntu-6 p-0.5 rounded-full"
               onClick={() => setFullScreen(!fullScreen)}
             />
