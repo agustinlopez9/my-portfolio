@@ -1,22 +1,13 @@
 import { useState, useEffect, useRef } from "react"
+import useFullscreen from "@/hooks/useFullscreen"
 import Link from "next/link"
 import Draggable from "react-draggable"
 
 export default function Projects() {
-  const [fullScreen, setFullScreen] = useState(false)
   const [dragging, setDragging] = useState(false)
-  const [position, setPosition] = useState("")
   const [folder, setFolder] = useState("frontend")
   const windowRef = useRef(null)
-
-  useEffect(() => {
-    if (fullScreen && windowRef.current) {
-      setPosition(windowRef.current.style.transform)
-      windowRef.current.style.transform = "translate(0, 0)"
-    } else {
-      windowRef.current.style.transform = position
-    }
-  }, [fullScreen])
+  const { fullScreen, setFullScreen } = useFullscreen({ windowRef })
 
   return (
     <Draggable bounds="parent" onStart={() => setDragging(true)} onStop={() => setDragging(false)} disabled={fullScreen}>
@@ -25,7 +16,7 @@ export default function Projects() {
         ref={windowRef}
       >
         <div className="relative p-2 bg-ubuntu-8 border-b border-black rounded-t-md">
-          <h2 className="block mx-auto text-center font-medium">Files</h2>
+          <h2 className="block mx-auto text-center font-medium">Projects</h2>
           <div className="absolute inset-0 flex items-center gap-1 justify-end p-2 mr-auto">
             <img
               src="/maximize.svg"

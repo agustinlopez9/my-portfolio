@@ -1,27 +1,20 @@
 import { useState, useEffect, useRef } from "react"
+import useFullscreen from "@/hooks/useFullscreen"
 import Link from "next/link"
 import Draggable from "react-draggable"
 
+const commands = {
+  help: "Sorry, this is a work in progress, commands will be available in the future!",
+  hello: "Hello, how are you?",
+  whoareyou: "My name is Agustin, I'm a web developer and I designed this website!",
+}
+
 export default function Terminal() {
-  const [fullScreen, setFullScreen] = useState(false)
   const [dragging, setDragging] = useState(false)
-  const [position, setPosition] = useState("")
   const [terminal, setTerminal] = useState([])
   const windowRef = useRef(null)
   const inputRef = useRef(null)
-
-  const commands = {
-    help: "Sorry, this is a work in progress, commands will be available in the future!",
-  }
-
-  useEffect(() => {
-    if (fullScreen && windowRef.current) {
-      setPosition(windowRef.current.style.transform)
-      windowRef.current.style.transform = "translate(0, 0)"
-    } else {
-      windowRef.current.style.transform = position
-    }
-  }, [fullScreen])
+  const { fullScreen, setFullScreen } = useFullscreen({ windowRef })
 
   const handleSubmit = (e) => {
     e.preventDefault()

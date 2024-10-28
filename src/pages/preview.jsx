@@ -1,21 +1,12 @@
 import { useState, useEffect, useRef } from "react"
+import useFullscreen from "@/hooks/useFullscreen"
 import Link from "next/link"
 import Draggable from "react-draggable"
 
 export default function Home() {
-  const [fullScreen, setFullScreen] = useState(null)
-  const [position, setPosition] = useState(false)
   const [dragging, setDragging] = useState(false)
   const windowRef = useRef(null)
-
-  useEffect(() => {
-    if (fullScreen && windowRef.current) {
-      setPosition(windowRef.current.style.transform)
-      windowRef.current.style.transform = "translate(0, 0)"
-    } else if (fullScreen === false && fullScreen !== null) {
-      windowRef.current.style.transform = position
-    }
-  }, [fullScreen])
+  const { fullScreen, setFullScreen } = useFullscreen({ windowRef })
 
   return (
     <Draggable bounds="parent" onStart={() => setDragging(true)} onStop={() => setDragging(false)} disabled={fullScreen}>
