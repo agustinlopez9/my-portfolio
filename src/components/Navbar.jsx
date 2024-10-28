@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
+import { usePathname } from 'next/navigation'
 import Link from "next/link"
 
 const Navbar = ({ children }) => {
-  const [time, setTime] = useState()
-
+  const [time, setTime] = useState()  
+  const pathname = usePathname()
   useEffect(() => {
     const options = { weekday: 'short', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
     setInterval(function() {
@@ -30,17 +31,17 @@ const Navbar = ({ children }) => {
       <navbar className="absolute bg-black/30 w-[60px] left-0 bottom-0 top-8">
         <ul className="mt-2">
           <li className="p-1">
-            <Link href="/">
+            <Link href={pathname === "/preview" ? "/" : "/preview"}>
               <img className="my-1" src="/home.svg" alt="home" />
             </Link>
           </li>
           <li className="p-1">
-            <Link href="/projects">
+            <Link href={pathname === "/projects" ? "/" : "/projects"}>
               <img className="my-1" src="/projects.svg" alt="projects" />
             </Link>
           </li>
           <li className="p-1">
-            <Link href="/terminal">
+            <Link href={pathname === "/terminal" ? "/" : "/terminal"}>
               <img className="my-1" src="/terminal.svg" alt="terminal" />
             </Link>
           </li>
