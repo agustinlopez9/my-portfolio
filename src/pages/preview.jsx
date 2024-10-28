@@ -41,11 +41,11 @@ export default function Home() {
         </div>
         <div className="mx-auto mt-4 max-w-[1080px]">
           <p className="home-title">
-            Nombre: <span className="text-ubuntu-5">Agustin Lopez</span>
+            Name: <span className="text-ubuntu-5">Agustin Lopez</span>
           </p>
           <br />
           <p className="home-title">
-            Desarrollador: <span className="text-ubuntu-5">Full Stack</span>
+            Developer: <span className="text-ubuntu-5">Full Stack</span>
           </p>
           <p className="home-title">
             Front-end: <span className="text-ubuntu-5">React, Tailwind CSS</span>
@@ -54,7 +54,7 @@ export default function Home() {
             Back-end: <span className="text-ubuntu-5">Node.js, PostgreSQL</span>
           </p>
           <p className="home-title">
-            Services: <span className="text-ubuntu-5">AWS, Amplify, Firebase</span>
+            Services: <span className="text-ubuntu-5">AWS, Amplify</span>
           </p>
         </div>
         <div className="block text-center">
